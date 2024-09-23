@@ -1,0 +1,6 @@
+*venv*
+venv/*
+build/*
+*build*
+*ffuftree.egg-info*
+ffuftree.egg-info/*
