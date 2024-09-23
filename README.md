@@ -1,6 +1,21 @@
 # ffuftree
+*Get output from ffuf and pipe it into ffuftree*
 
-Description of projectffuftree.
+```
+
+                                *
+                               / \
+                              ffuf\
+                             /     \
+                            ffuf    ffuf
+                           /    ffuf \
+                          ffuf        \
+                         /     ffuf   ffuf
+                         -------||-------
+
+                         by: phor3nsic
+
+```
 
 ### Install
 
@@ -13,4 +28,23 @@ pipx install git+https://github.com/phor3nsic/ffuftree
 
 ```sh
 pip install git+https://github.com/phor3nsic/ffuftree
+```
+
+### Example
+
+After running ffuf and saving the output to `ffuf_output.json` and executing the following command:
+
+```sh
+cat ffuf_output.json | ffuftree example.com
+example.com
+└── example.com
+    └── api
+        └── v2
+            ├── users
+            ├── affiliates
+            ├── settings
+            ├── campaigns
+            ├── ping
+            ├── transactions
+            └── directlinks
 ```

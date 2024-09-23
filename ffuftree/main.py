@@ -31,6 +31,10 @@ def print_tree(root):
         print(f"{pre}{node.name}")
 
 def main():
+    if len(sys.argv) != 2:
+        print("Usage: cat ffuf_results.json | ffuftree <target>")
+        sys.exit(1)
+
     # Read JSON from standard input
     json_data = json.load(sys.stdin)
 
