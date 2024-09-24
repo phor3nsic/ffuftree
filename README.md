@@ -35,8 +35,7 @@ pip install git+https://github.com/phor3nsic/ffuftree
 After running ffuf and saving the output to `ffuf_output.json` and executing the following command:
 
 ```sh
-cat ffuf_output.json | ffuftree example.com
-example.com
+cat ffuf_output.json | ffuftree
 └── example.com
     └── api
         └── v2

@@ -2,9 +2,9 @@ import json
 import sys
 from anytree import Node, RenderTree
 
-def gen_path_tree(json_data, target):
-    root = Node(target)
+def gen_path_tree(json_data):
     paths = [item['url'] for item in json_data['results']]
+    root = Node('|')
 
     for path in paths:
         jump_protocol = path.split('://')[0]
@@ -31,15 +31,15 @@ def print_tree(root):
         print(f"{pre}{node.name}")
 
 def main():
-    if len(sys.argv) != 2:
-        print("Usage: cat ffuf_results.json | ffuftree <target>")
+    if len(sys.argv) >= 2:
+        print("Usage: cat ffuf_results.json | ffuftree")
         sys.exit(1)
 
     # Read JSON from standard input
     json_data = json.load(sys.stdin)
 
     # Create the tree
-    root = gen_path_tree(json_data, sys.argv[1])
+    root = gen_path_tree(json_data)
 
     # Print the tree
     print_tree(root)
